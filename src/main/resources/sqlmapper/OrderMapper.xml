@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.chainup.config.dao.OrderMapper" >
-  <resultMap id="BaseResultMap" type="com.lolo.dao.entity.TrOrderade" >
+<mapper namespace="com.lolo.dao.mapper.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.lolo.dao.entity.Order" >
     <id column="orderId" property="orderid" jdbcType="INTEGER" />
     <result column="price" property="price" jdbcType="DOUBLE" />
     <result column="volume" property="volume" jdbcType="DOUBLE" />
@@ -71,7 +71,7 @@
   <sql id="Base_Column_List" >
     orderId, price, volume, side, oStatus, ctime, mtime
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.chainup.config.entity.OrderExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lolo.dao.entity.OrderExample" >
     select
     <if test="distinct" >
       distinct
@@ -98,13 +98,13 @@
     delete from order
     where orderId = #{orderid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.chainup.config.entity.OrderExample" >
+  <delete id="deleteByExample" parameterType="com.lolo.dao.entity.OrderExample" >
     delete from order
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.chainup.config.entity.Order" >
+  <insert id="insert" parameterType="com.lolo.dao.entity.Order" >
     insert into order (orderId, price, volume, 
       side, oStatus, ctime, 
       mtime)
@@ -112,7 +112,7 @@
       #{side,jdbcType=VARCHAR}, #{ostatus,jdbcType=TINYINT}, #{ctime,jdbcType=TIMESTAMP}, 
       #{mtime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.chainup.config.entity.Order" >
+  <insert id="insertSelective" parameterType="com.lolo.dao.entity.Order" >
     insert into order
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="orderid != null" >
@@ -161,7 +161,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.chainup.config.entity.OrderExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.lolo.dao.entity.OrderExample" resultType="java.lang.Integer" >
     select count(*) from order
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -209,7 +209,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.chainup.config.entity.Order" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.lolo.dao.entity.Order" >
     update order
     <set >
       <if test="price != null" >
@@ -233,7 +233,7 @@
     </set>
     where orderId = #{orderid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.chainup.config.entity.Order" >
+  <update id="updateByPrimaryKey" parameterType="com.lolo.dao.entity.Order" >
     update order
     set price = #{price,jdbcType=DOUBLE},
       volume = #{volume,jdbcType=DOUBLE},

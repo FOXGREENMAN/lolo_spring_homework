@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.chainup.config.dao.TradeMapper" >
+<mapper namespace="com.lolo.dao.mapper.TradeMapper" >
   <resultMap id="BaseResultMap" type="com.lolo.dao.entity.Trade" >
     <id column="tradeId" property="tradeid" jdbcType="INTEGER" />
     <result column="price" property="price" jdbcType="DOUBLE" />
@@ -69,7 +69,7 @@
   <sql id="Base_Column_List" >
     tradeId, price, volume, ctime, mtime
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.chainup.config.entity.TradeExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lolo.dao.entity.TradeExample" >
     select
     <if test="distinct" >
       distinct
@@ -96,19 +96,19 @@
     delete from trade
     where tradeId = #{tradeid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.chainup.config.entity.TradeExample" >
+  <delete id="deleteByExample" parameterType="com.lolo.dao.entity.TradeExample" >
     delete from trade
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.chainup.config.entity.Trade" >
+  <insert id="insert" parameterType="com.lolo.dao.entity.Trade" >
     insert into trade (tradeId, price, volume, 
       ctime, mtime)
     values (#{tradeid,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}, #{volume,jdbcType=DOUBLE}, 
       #{ctime,jdbcType=TIMESTAMP}, #{mtime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.chainup.config.entity.Trade" >
+  <insert id="insertSelective" parameterType="com.lolo.dao.entity.Trade" >
     insert into trade
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="tradeid != null" >
@@ -145,7 +145,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.chainup.config.entity.TradeExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.lolo.dao.entity.TradeExample" resultType="java.lang.Integer" >
     select count(*) from trade
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -185,7 +185,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.chainup.config.entity.Trade" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.lolo.dao.entity.Trade" >
     update trade
     <set >
       <if test="price != null" >
@@ -203,7 +203,7 @@
     </set>
     where tradeId = #{tradeid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.chainup.config.entity.Trade" >
+  <update id="updateByPrimaryKey" parameterType="com.lolo.dao.entity.Trade" >
     update trade
     set price = #{price,jdbcType=DOUBLE},
       volume = #{volume,jdbcType=DOUBLE},

@@ -5,9 +5,11 @@ import com.lolo.dao.mapper.OrderMapper;
 import com.lolo.service.OrderService;
 import com.sun.org.apache.xpath.internal.operations.Or;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
+@Service
 public class OrderSeviceImpl implements OrderService {
 
     @Autowired
