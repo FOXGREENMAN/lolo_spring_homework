@@ -7,6 +7,7 @@ import org.apache.catalina.Store;
 import java.util.Map;
 
 public interface OrderService {
+       //接口类
        String setOrderById (Map<String,String> paraMa);
 
 

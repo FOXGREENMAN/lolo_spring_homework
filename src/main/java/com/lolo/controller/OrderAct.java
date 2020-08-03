@@ -30,7 +30,7 @@ public class OrderAct {
     @RequestMapping(value= "/yanOrderId", method= RequestMethod.POST, produces="application/json;charset=utf-8")
     @ResponseBody
     public String createOrder(Map<String,String> paraMap){
-
+            //传给Service
             String isSucc = orderService.setOrderById(paraMap);
 
         return isSucc;

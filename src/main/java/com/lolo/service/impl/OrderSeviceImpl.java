@@ -15,14 +15,16 @@ public class OrderSeviceImpl implements OrderService {
 
     @Override
     public String setOrderById(Map<String,String> paraMa){
+        //实现逻辑
         Order o = new Order();
-
         String  strOrder= paraMa.get("orderId");
         Integer orderId = Integer.parseInt(strOrder);
         o.setOrderid(orderId);
         o.setSide(paraMa.get("side"));
         o.setPrice(Double.valueOf(paraMa.get("price")));
+        //存入数据库
         return orderMapper.insert(paraMa);
     }
+
 
 }
