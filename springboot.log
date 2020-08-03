@@ -1,0 +1,31 @@
+2020-08-02 14:24:19.674  INFO 12764 --- [main] com.chainup.ExchangeCoCloudApplication   : Starting ExchangeCoCloudApplication on DESKTOP-KB3KKJI with PID 12764 (D:\springbootspace\exchange-co-cloud\target\classes started by admin in D:\springbootspace\exchange-co-cloud)
+2020-08-02 14:24:19.683  INFO 12764 --- [main] com.chainup.ExchangeCoCloudApplication   : The following profiles are active: dev
+2020-08-02 14:24:21.035  WARN 12764 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.chainup]' package. Please check your configuration.
+2020-08-02 14:24:21.977  INFO 12764 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9999 (http)
+2020-08-02 14:24:21.992  INFO 12764 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-08-02 14:24:21.992  INFO 12764 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-02 14:24:22.127  INFO 12764 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-08-02 14:24:22.127  INFO 12764 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2326 ms
+2020-08-02 14:24:22.199  WARN 12764 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userAct': Unsatisfied dependency expressed through field 'userService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userSeviceImpl': Unsatisfied dependency expressed through field 'userMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.chainup.dao.mapper.UserMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-08-02 14:24:22.203  INFO 12764 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-08-02 14:24:22.222  INFO 12764 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-08-02 14:24:22.376 ERROR 12764 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userMapper in com.chainup.service.impl.UserSeviceImpl required a bean of type 'com.chainup.dao.mapper.UserMapper' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.chainup.dao.mapper.UserMapper' in your configuration.
+
