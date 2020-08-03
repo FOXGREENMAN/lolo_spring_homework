@@ -7,7 +7,7 @@ import java.util.List;
 /**
 * @author 42064
 */
-public class TradeExample extends AbstractExample {
+public class TradeExample {
     /**
      * trade
      */

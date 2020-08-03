@@ -11,4 +11,5 @@ import org.springframework.stereotype.Repository;
 public interface UserMapper {
 
     User selectUserById (@Param("uid") Integer uid);
+    User selectUserByIda (@Param("uid") Integer uid);
 }

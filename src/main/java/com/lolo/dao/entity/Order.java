@@ -146,4 +146,17 @@ public class Order implements Serializable {
             return this.obj;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderid=" + orderid +
+                ", price=" + price +
+                ", volume=" + volume +
+                ", side='" + side + '\'' +
+                ", ostatus=" + ostatus +
+                ", ctime=" + ctime +
+                ", mtime=" + mtime +
+                '}';
+    }
 }

@@ -1,8 +1,8 @@
 package com.lolo.dao.mapper;
 
-import com.chainup.common.dao.SqlMapper;
-import com.chainup.config.entity.Trade;
-import com.chainup.config.entity.TradeExample;
+
+import com.lolo.dao.entity.Trade;
+import com.lolo.dao.entity.TradeExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 /**
 * @author 42064
 */
-public interface TradeMapper extends SqlMapper {
+public interface TradeMapper  {
     int countByExample(TradeExample example);
 
     int deleteByExample(TradeExample example);

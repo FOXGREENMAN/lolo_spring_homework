@@ -1,23 +1,25 @@
 package com.lolo.dao.mapper;
 
-import com.chainup.common.dao.SqlMapper;
-import com.chainup.config.entity.Order;
-import com.chainup.config.entity.OrderExample;
+import com.lolo.dao.entity.Order;
+import com.lolo.dao.entity.OrderExample;
+
+
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
 * @author 42064
 */
-public interface OrderMapper extends SqlMapper {
+public interface OrderMapper  {
     int countByExample(OrderExample example);
 
     int deleteByExample(OrderExample example);
 
     int deleteByPrimaryKey(Integer orderid);
 
-    int insert(Order record);
+    String insert(Map<String,String> paraMa);
 
     int insertSelective(Order record);
 
