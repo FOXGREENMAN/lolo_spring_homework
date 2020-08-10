@@ -7,23 +7,23 @@ import java.util.List;
 /**
 * @author 42064
 */
-public class OrderExample  {
+public class ExOrderExample {
     /**
-     * order
+     * ex_order
      */
     protected String orderByClause;
 
     /**
-     * order
+     * ex_order
      */
     protected boolean distinct;
 
     /**
-     * order
+     * ex_order
      */
     protected List<Criteria> oredCriteria;
 
-    public OrderExample() {
+    public ExOrderExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -549,14 +549,14 @@ public class OrderExample  {
     }
 
     public static class Criteria extends GeneratedCriteria {
-        private OrderExample example;
+        private ExOrderExample example;
 
-        protected Criteria(OrderExample example) {
+        protected Criteria(ExOrderExample example) {
             super();
             this.example = example;
         }
 
-        public OrderExample example() {
+        public ExOrderExample example() {
             return this.example;
         }
     }

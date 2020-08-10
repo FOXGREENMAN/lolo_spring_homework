@@ -6,7 +6,7 @@ import java.util.Date;
 /**
 * @author 42064
 */
-public class Order implements Serializable {
+public class ExOrder implements Serializable {
     /**
      * 订单ID
      */
@@ -101,10 +101,10 @@ public class Order implements Serializable {
     }
 
     public static class Builder {
-        private Order obj;
+        private ExOrder obj;
 
         public Builder() {
-            this.obj = new Order();
+            this.obj = new ExOrder();
         }
 
         public Builder orderid(Integer orderid) {
@@ -142,21 +142,8 @@ public class Order implements Serializable {
             return this;
         }
 
-        public Order build() {
+        public ExOrder build() {
             return this.obj;
         }
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "orderid=" + orderid +
-                ", price=" + price +
-                ", volume=" + volume +
-                ", side='" + side + '\'' +
-                ", ostatus=" + ostatus +
-                ", ctime=" + ctime +
-                ", mtime=" + mtime +
-                '}';
     }
 }
