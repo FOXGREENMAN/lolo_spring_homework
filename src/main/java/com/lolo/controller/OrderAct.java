@@ -1,6 +1,7 @@
 package com.lolo.controller;
 
 
+import com.lolo.dao.entity.ExOrder;
 import com.lolo.dao.entity.User;
 
 import com.lolo.service.ExOrderService;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -48,18 +50,14 @@ public class OrderAct {
         //校验参数
         if (CheckParam.check(paraMap.get("price"))){
             System.out.println("通过");
-
+            return  null;
         }if (CheckParam.checkPrice(paraMap.get("price"))){
             System.out.println("通过");
-
-        }else {
             return  null;
         }
 
-
-
         //传给Service
-        String isSucc = exOrderService.setOrderById(paraMap);
+        String isSucc = exOrderService.saveOrderById(paraMap);
 
         return isSucc;
     }
@@ -74,9 +72,15 @@ public class OrderAct {
     public String inquireOrder(@RequestBody Map<String,String> inquMap){
 
 
+        //校验参数
+        if (CheckParam.check(inquMap.get("price"))){
+            System.out.println("通过");
+            return  null;
+        }if (CheckParam.checkPrice(inquMap.get("price"))){
+            System.out.println("通过");
+            return  null;
+        }
 
-
-
-        return
+        return exOrderService.getOrderById(inquMap).toString();
     }
 }
