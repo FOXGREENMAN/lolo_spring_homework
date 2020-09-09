@@ -34,4 +34,15 @@ public class UserAct {
 
         return user == null ? "user don't exist" : user.toString();
     }
+
+    @RequestMapping(value= "/findUserByInvited", method= RequestMethod.POST, produces="application/json;charset=utf-8")
+    @ResponseBody
+    public String findUserByInvited(@RequestBody HashMap<String, Object> paramMap){
+
+        Object obUid = paramMap.get("uid");
+        String strUid = String .valueOf(obUid);
+        Integer ingUid = Integer.valueOf(strUid);
+
+        return userService.findUserExtByUid(ingUid).toString();
+    }
 }
