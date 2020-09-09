@@ -1,5 +1,6 @@
 package com.lolo.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.lolo.dao.entity.User;
 import com.lolo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,6 @@ public class UserAct {
         String strUid = String .valueOf(obUid);
         Integer ingUid = Integer.valueOf(strUid);
 
-        return userService.findUserExtByUid(ingUid).toString();
+        return JSONObject.toJSONString(userService.findUserExtByUid(ingUid));
     }
 }

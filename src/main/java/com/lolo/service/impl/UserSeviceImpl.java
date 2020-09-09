@@ -10,6 +10,7 @@ import com.lolo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,24 +48,34 @@ public class UserSeviceImpl implements UserService{
 
         String invCode = "";
         Map<String, UserExtVo> map = new HashMap<>();
+        List<UserExtVo> voList = new ArrayList<>();
 
         for (int i = 0; i < 5; i++) {
-
             if(i == 0){
                 // 初始用户, 最子级
                 invCode = foxUserExt.getInvitedCode();
-                map.put("user",buildExtVoV2(foxUserExt));
+                voList.add(buildExtVoV2(foxUserExt));
+                continue;
             }
             UserExt tempExt = getUserExtByInvitedCode(invCode);
-
             if(tempExt == null){
                 System.out.println("当前邀请码无法获取到上一级; invitedCode:"+invCode);
                 break;
             }
             UserExtVo vo = buildExtVoV2(tempExt);
-            map.put("level"+(i+1),vo);
+            voList.add(vo);
             invCode = tempExt.getInvitedCode();
 
+        }
+        for (int i = 0; i < voList.size(); i++) {
+            UserExtVo itme = voList.get(i);
+            Integer invitedUid = i+1 < voList.size() ? voList.get(i+1).getUid() : 0;
+            itme.setInvitedUid(invitedUid);
+            if(i == 0){
+                map.put("user",itme);
+                continue;
+            }
+            map.put("leve"+(i+1),itme);
         }
         return map;
     }
