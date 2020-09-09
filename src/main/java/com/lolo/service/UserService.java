@@ -2,6 +2,7 @@ package com.lolo.service;
 
 import com.lolo.dao.entity.User;
 import com.lolo.dao.entity.UserExt;
+import com.lolo.dao.entity.UserExtVo;
 
 import java.util.Map;
 
@@ -12,5 +13,5 @@ public interface UserService {
 
     User getUserById (Integer uid);
 
-    Map<String,UserExt> findUserExtByUid (Integer uid);
+    Map<String, UserExtVo> findUserExtByUid (Integer uid);
 }

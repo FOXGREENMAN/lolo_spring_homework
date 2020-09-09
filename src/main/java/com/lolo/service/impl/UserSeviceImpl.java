@@ -32,7 +32,7 @@ public class UserSeviceImpl implements UserService{
     }
 
     @Override
-    public Map<String, UserExt> findUserExtByUid(Integer uid) {
+    public Map<String, UserExtVo> findUserExtByUid(Integer uid) {
 
         UserExtExample userExtExample = new UserExtExample();
         UserExtExample.Criteria criteria = userExtExample.createCriteria();
@@ -46,7 +46,7 @@ public class UserSeviceImpl implements UserService{
     public Map<String, UserExt> getFiveUserExt(UserExt foxUserExt){
 
         String invCode = "";
-        Map<String, UserExt> map = new HashMap<>();
+        Map<String, UserExtVo> map = new HashMap<>();
 
         for (int i = 0; i < 5; i++) {
 
@@ -61,7 +61,8 @@ public class UserSeviceImpl implements UserService{
                 System.out.println("当前邀请码无法获取到上一级; invitedCode:"+invCode);
                 break;
             }
-            map.put("level"+(i+1),tempExt);
+            UserExtVo vo = buildExtVo(tempExt);
+            map.put("level"+(i+1),vo);
             invCode = tempExt.getInvitedCode();
 
         }
@@ -79,12 +80,11 @@ public class UserSeviceImpl implements UserService{
 
         return list.size() > 0 ? list.get(0) : null;
     }
-
     private UserExtVo buildExtVo (UserExt userExt){
         UserExtVo userExtVo = new UserExtVo();
-
-
-
+        userExtVo.setInviteCode(userExt.getInviteCode());
+        userExtVo.setUid(userExt.getUid());
+        userExtVo.setInvitedCode(userExt.getInvitedCode());
         return userExtVo;
     }
 }
