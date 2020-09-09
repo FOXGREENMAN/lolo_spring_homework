@@ -53,7 +53,7 @@ public class UserSeviceImpl implements UserService{
             if(i == 0){
                 // 初始用户, 最子级
                 invCode = foxUserExt.getInvitedCode();
-                map.put("user",buildExtVo(foxUserExt));
+                map.put("user",buildExtVoV2(foxUserExt));
             }
             UserExt tempExt = getUserExtByInvitedCode(invCode);
 
@@ -61,7 +61,7 @@ public class UserSeviceImpl implements UserService{
                 System.out.println("当前邀请码无法获取到上一级; invitedCode:"+invCode);
                 break;
             }
-            UserExtVo vo = buildExtVo(tempExt);
+            UserExtVo vo = buildExtVoV2(tempExt);
             map.put("level"+(i+1),vo);
             invCode = tempExt.getInvitedCode();
 
@@ -80,13 +80,13 @@ public class UserSeviceImpl implements UserService{
 
         return list.size() > 0 ? list.get(0) : null;
     }
-    private UserExtVo buildExtVo (UserExt userExt){
+   /* private UserExtVo buildExtVo (UserExt userExt){
         UserExtVo userExtVo = new UserExtVo();
         userExtVo.setInviteCode(userExt.getInviteCode());
         userExtVo.setUid(userExt.getUid());
         userExtVo.setInvitedCode(userExt.getInvitedCode());
         return userExtVo;
-    }
+    }*/
 
     private UserExtVo buildExtVoV2 (UserExt userExt){
         return UserExtVo.builder().inviteCode(userExt.getInviteCode()).inviteCode(userExt.getInvitedCode()).uid(userExt.getUid()).build();

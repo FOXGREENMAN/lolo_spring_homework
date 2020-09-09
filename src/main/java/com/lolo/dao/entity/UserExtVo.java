@@ -10,8 +10,6 @@ public class UserExtVo {
     private String inviteCode;
     private  String invitedCode;
 
-    public UserExtVo(){}
-
     public Integer getUid() {
         return uid;
     }
@@ -42,5 +40,15 @@ public class UserExtVo {
 
     public void setInvitedCode(String invitedCode) {
         this.invitedCode = invitedCode;
+    }
+
+    @Override
+    public String toString() {
+        return "UserExtVo{" +
+                "uid=" + uid +
+                ", invitedUid=" + invitedUid +
+                ", inviteCode='" + inviteCode + '\'' +
+                ", invitedCode='" + invitedCode + '\'' +
+                '}';
     }
 }
