@@ -3,6 +3,7 @@ package com.lolo.service.impl;
 import com.lolo.dao.entity.User;
 import com.lolo.dao.entity.UserExt;
 import com.lolo.dao.entity.UserExtExample;
+import com.lolo.dao.entity.UserExtVo;
 import com.lolo.dao.mapper.UserExtMapper;
 import com.lolo.dao.mapper.UserMapper;
 import com.lolo.service.UserService;
@@ -77,5 +78,13 @@ public class UserSeviceImpl implements UserService{
         List<UserExt> list = userExtMapper.selectByExample(userExtExample);
 
         return list.size() > 0 ? list.get(0) : null;
+    }
+
+    private UserExtVo buildExtVo (UserExt userExt){
+        UserExtVo userExtVo = new UserExtVo();
+
+
+
+        return userExtVo;
     }
 }
