@@ -1,11 +1,16 @@
 package com.lolo.dao.entity;
 
+import lombok.Builder;
+
+@Builder
 public class UserExtVo {
 
     private  Integer uid;
     private Integer invitedUid;
     private String inviteCode;
     private  String invitedCode;
+
+    public UserExtVo(){}
 
     public Integer getUid() {
         return uid;

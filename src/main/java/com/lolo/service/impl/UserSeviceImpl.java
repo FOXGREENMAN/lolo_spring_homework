@@ -43,7 +43,7 @@ public class UserSeviceImpl implements UserService{
         return  getFiveUserExt(list.get(0));
     }
 
-    public Map<String, UserExt> getFiveUserExt(UserExt foxUserExt){
+    public Map<String, UserExtVo> getFiveUserExt(UserExt foxUserExt){
 
         String invCode = "";
         Map<String, UserExtVo> map = new HashMap<>();
@@ -53,7 +53,7 @@ public class UserSeviceImpl implements UserService{
             if(i == 0){
                 // 初始用户, 最子级
                 invCode = foxUserExt.getInvitedCode();
-                map.put("user",foxUserExt);
+                map.put("user",buildExtVo(foxUserExt));
             }
             UserExt tempExt = getUserExtByInvitedCode(invCode);
 
@@ -86,5 +86,9 @@ public class UserSeviceImpl implements UserService{
         userExtVo.setUid(userExt.getUid());
         userExtVo.setInvitedCode(userExt.getInvitedCode());
         return userExtVo;
+    }
+
+    private UserExtVo buildExtVoV2 (UserExt userExt){
+        return UserExtVo.builder().inviteCode(userExt.getInviteCode()).inviteCode(userExt.getInvitedCode()).uid(userExt.getUid()).build();
     }
 }
