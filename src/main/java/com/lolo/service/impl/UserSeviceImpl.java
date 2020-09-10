@@ -75,7 +75,7 @@ public class UserSeviceImpl implements UserService{
                 map.put("user",itme);
                 continue;
             }
-            map.put("leve"+(i+1),itme);
+            map.put("leve"+i,itme);
         }
         return map;
     }
