@@ -10,10 +10,7 @@ import com.lolo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by admin on 2020/8/2.
@@ -47,7 +44,7 @@ public class UserSeviceImpl implements UserService{
     public Map<String, UserExtVo> getFiveUserExt(UserExt foxUserExt){
 
         String invCode = "";
-        Map<String, UserExtVo> map = new HashMap<>();
+        Map<String, UserExtVo> map = new TreeMap<>();
         List<UserExtVo> voList = new ArrayList<>();
 
         for (int i = 0; i < 5; i++) {
