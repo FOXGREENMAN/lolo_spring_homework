@@ -55,7 +55,27 @@ public class ExOrderSeviceImpl implements ExOrderService {
     @Override
     public String getOrderById(Map<String,String> inquMap){
         ExOrderExample exOrderExample = new ExOrderExample();
-        exorderMapper.selectByExample(exOrderExample).toString();
+        ExOrderExample.Criteria criteria = exOrderExample.createCriteria();
+
+        //Controller层判断非空
+        String priceStr  =  inquMap.get("price").toString();
+
+        Double priceDou = Double.valueOf(priceStr);
+
+        //这个相当于 where price = {priceDou}
+        criteria.andPriceEqualTo(priceDou);
+
+//        //这个相当于 where price > {priceDou}
+//        criteria.andPriceGreaterThan(priceDou);
+//
+//        //这个相当于 where price < {priceDou}
+//        criteria.andPriceGreaterThanOrEqualTo(priceDou);
+//
+//        //这个相当于 where price >= {priceDou}
+//        criteria.andPriceGreaterThanOrEqualTo(priceDou);
+//
+//        //这个相当于 where price <= {priceDou}
+//        criteria.andPriceLessThanOrEqualTo(priceDou);
 
 
         return exorderMapper.selectByExample(exOrderExample).toString();

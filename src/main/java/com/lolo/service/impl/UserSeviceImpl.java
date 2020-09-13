@@ -62,7 +62,6 @@ public class UserSeviceImpl implements UserService{
             UserExtVo vo = buildExtVoV2(tempExt);
             voList.add(vo);
             invCode = tempExt.getInvitedCode();
-
         }
         for (int i = 0; i < voList.size(); i++) {
             UserExtVo itme = voList.get(i);
@@ -97,6 +96,6 @@ public class UserSeviceImpl implements UserService{
     }*/
 
     private UserExtVo buildExtVoV2 (UserExt userExt){
-        return UserExtVo.builder().inviteCode(userExt.getInviteCode()).inviteCode(userExt.getInvitedCode()).uid(userExt.getUid()).build();
+        return UserExtVo.builder().inviteCode(userExt.getInviteCode()).invitedCode(userExt.getInvitedCode()).uid(userExt.getUid()).build();
     }
 }

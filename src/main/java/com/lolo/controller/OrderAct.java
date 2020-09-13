@@ -28,6 +28,7 @@ import java.util.Map;
  */
 @Controller
 public class OrderAct {
+
     @Autowired
     private ExOrderService exOrderService;
     /**
@@ -42,10 +43,9 @@ public class OrderAct {
 //        Thread thread = new Thread();
 //        String pice = paraMap.get("price");
 //        Map<String,String> map = new Hashtable<String, String>();
-//        for (String value : paraMap.values()) {
+//       for (String value : paraMap.values()) {
 //            System.out.println("Key = " + value);
 //        }
-
         paraMap.get("price");
         //校验参数
         if (CheckParam.check(paraMap.get("price"))){
@@ -82,5 +82,14 @@ public class OrderAct {
         }
 
         return exOrderService.getOrderById(inquMap).toString();
+    }
+
+
+    @RequestMapping(value= "/shancOrderId", method= RequestMethod.POST, produces="application/json;charset=utf-8")
+    @ResponseBody
+    public String deleteOrder (@RequestBody Map<String,String> deleMap, String str){
+        String sw = deleMap.remove(str);
+
+        return sw;
     }
 }
